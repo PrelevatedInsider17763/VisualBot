@@ -5,6 +5,10 @@ from discord.ext import commands
 # Check if the bot token is available as an environment variable
 bot_token = os.environ.get("BOT_TOKEN")
 
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='>', intents=intents)
+
 if not bot_token:
     print("Bot token not found. Please set the BOT_TOKEN environment variable.")
     exit(1)
